@@ -218,7 +218,8 @@ resource "aws_cloudfront_distribution" "frontend" {
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "terraform test"
-  default_root_object = "app/build/index.html"
+#   default_root_object = "app/build/index.html"
+  default_root_object = "index.html"
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
@@ -277,7 +278,8 @@ resource "aws_cloudfront_distribution" "frontend" {
 data "aws_iam_policy_document" "s3_deploy_bucket" {
   statement {
     actions   = ["s3:GetObject"]
-    resources = ["${aws_s3_bucket.deploy_bucket.arn}/app/build/*"]
+    # resources = ["${aws_s3_bucket.deploy_bucket.arn}/app/build/*"]
+    resources = ["${aws_s3_bucket.deploy_bucket.arn}/*"]
 
     principals {
       type        = "AWS"
