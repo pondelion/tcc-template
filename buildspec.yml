@@ -4,6 +4,8 @@ phases:
   install:
     runtime-versions:
       nodejs: 12
+    commands:
+      - n 16.14.2
   pre_build:
     commands:
       - cd app
