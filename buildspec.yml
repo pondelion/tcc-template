@@ -18,5 +18,5 @@ phases:
       - ls
 artifacts:
   files:
-    - 'app/build/**/*'
-  discard-paths: yes
+    - '**/*'
+  base-directory: 'app/build'
